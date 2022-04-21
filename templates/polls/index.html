@@ -1,17 +1,19 @@
 {% extends 'base.html' %}
 {% block content %}
-  <h1 class="text-center mb-3">Polls</h1>
-  {% if current_questions %}
-    {% for question in current_questions %}
-      <div class="card mb-3">
-        <div class="card-body">
-          <p class="lead">{{ question.question_text }}</p>
-          <a href="{% url 'polls:detail' question.id %}" class="btn btn-warning btn-sm">Vote Now</a>
-          <a href="{% url 'polls:results' question.id %}" class="btn btn-danger btn-sm">Results</a>
-        </div>
-      </div>
-    {% endfor %}
-  {% else %}
-    <p>No polls available</p>
-  {% endif %}
+<h1 class="text-center mb-3">Polls</h1>
+{% if current_questions %}
+{% for question in current_questions %}
+<div class="card mb-3">
+  <div class="card-body">
+    <img src="https://images.unsplash.com/photo-1611887842940-0571038c6d23?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTl8fHBvbGxzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt=”an artist's rendition of a black hole in
+      space”>
+    <p class="lead">{{ question.question_text }}</p>
+    <a href="{% url 'polls:detail' question.id %}" class="btn btn-warning btn-sm">Vote Now</a>
+    <a href="{% url 'polls:results' question.id %}" class="btn btn-danger btn-sm">Results</a>
+  </div>
+</div>
+{% endfor %}
+{% else %}
+<p>No polls available</p>
+{% endif %}
 {% endblock %}
